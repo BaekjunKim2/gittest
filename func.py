@@ -3,3 +3,6 @@ def foo(bar):
 
 def bar(foo):
     pass
+
+def hello(world):
+    pass
