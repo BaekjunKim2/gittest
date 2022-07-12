@@ -19,6 +19,7 @@ pipeline {
         sh 'git config user.email "jenkins@vuno.co"'
         sh 'git add -A'
         sh 'git commit -m "Jenkins commit"'
+        sh 'git push --set-upstream origin master'
         sh 'git push'
       }
     }
