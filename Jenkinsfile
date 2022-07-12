@@ -15,10 +15,12 @@ pipeline {
 
     stage('Git') {
       steps {
-        withCredentials([gitUsernamePassword(credentailsId: 'github-baekjun', gitToolName: 'git-tool')]) {
-          sh 'git add myfile; git commit; git push'
-        }
-      }  
+        sh 'git config user.name "Jenkins"'
+        sh 'git config user.email "jenkins@vuno.co"'
+        sh 'git add -A'
+        sh 'git commit -m "Jenkins commit"'
+        sh 'git push'
+      }
     }
   }
 }
