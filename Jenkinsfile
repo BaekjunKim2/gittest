@@ -9,7 +9,7 @@ pipeline {
 
     stage('Edit') {
       steps {
-        sh 'echo \'echo\' > myfile'
+        sh 'echo apple >> myfile'
       }
     }
 
