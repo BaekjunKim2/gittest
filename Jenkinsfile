@@ -13,5 +13,12 @@ pipeline {
       }
     }
 
+    stage('Git') {
+      steps {
+        withCredentials([gitUsernamePassword(credentailsId: 'github-baekjun', gitToolName: 'git-tool')]) {
+          sh 'git add myfile; git commit; git push'
+        }
+      }  
+    }
   }
 }
