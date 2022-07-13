@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Clone') {
       steps {
-        git(poll: true, url: 'https://github.com/BaekjunKim2/gittest', branch: 'master', changelog: true)
+        git credentialsId: 'github-baekjun', poll: false, url: 'https://github.com/BaekjunKim2/gittest'
       }
     }
 
@@ -17,9 +17,8 @@ pipeline {
       steps {
         sh 'git config user.name "Jenkins"'
         sh 'git config user.email "jenkins@vuno.co"'
-        sh 'git add -A'
-        sh 'git commit -m "Jenkins commit"'
-        sh 'git push --set-upstream origin master'
+        sh 'git config push.default current'
+        sh 'git commit -am "Jenkins commit"'
         sh 'git push'
       }
     }
